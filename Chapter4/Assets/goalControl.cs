@@ -10,7 +10,7 @@ public class goalControl : MonoBehaviour {
 	private Vector3 start_goal_pos;
 	private bool is_move_right = true;
 	private GUIStyle style;
-
+	public GUIStyleState styleState;
 
 
 	// Use this for initialization
@@ -56,6 +56,8 @@ public class goalControl : MonoBehaviour {
 		if(is_collided){
 			Rect rect = new Rect (Screen.width / 2, 80, 100, 20);
 			style.fontStyle = FontStyle.Bold;
+			styleState.textColor = Color.red;
+			style.normal = styleState;
 			//画面に成功と表示
 			GUI.Label (rect, "成功！！", style);
 		}
