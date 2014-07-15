@@ -1,0 +1,8 @@
+# Mac
+.DS_Store
+
+# Unity
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+
