@@ -9,6 +9,9 @@ public class goalControl : MonoBehaviour {
 	private Vector3 goal_pos;
 	private Vector3 start_goal_pos;
 	private bool is_move_right = true;
+	private GUIStyle style;
+
+
 
 	// Use this for initialization
 	void Start () {
@@ -16,6 +19,9 @@ public class goalControl : MonoBehaviour {
 		float rnd = Random.Range (GOAL_MIN, GOAL_MAX);
 		// GoalのX位置をランダムな値に
 		start_goal_pos = this.transform.position = new Vector3 (rnd, -1.0f, 0.0f);
+		// 成功時のフォントサイズ
+		style = new GUIStyle ();
+		style.fontSize = 30;
 	}
 	
 	// Update is called once per frame
@@ -48,8 +54,10 @@ public class goalControl : MonoBehaviour {
 
 	void OnGUI(){
 		if(is_collided){
+			Rect rect = new Rect (Screen.width / 2, 80, 100, 20);
+			style.fontStyle = FontStyle.Bold;
 			//画面に成功と表示
-			GUI.Label (new Rect(Screen.width/2, 80, 100, 20), "成功！！");
+			GUI.Label (rect, "成功！！", style);
 		}
 	}
 }
